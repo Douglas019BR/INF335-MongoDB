@@ -6,7 +6,7 @@ import inf335mongodb.repositorios.ProdutoRepositorio;
 public class App {
     public static void main(String[] args) {
         ProdutoRepositorio repositorio = new ProdutoRepositorio();
-
+        repositorio.removerProduto(7);
         System.out.println("Lista de Produtos:");
         for (Produto produto : repositorio.listarProdutos()) {
             System.out.println(produto);

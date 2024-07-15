@@ -1,0 +1,22 @@
+Lista de Produtos:
+Documento inválido encontrado: {"_id": {"$oid": "66950438c51a5423da5aa846"}, "codigo": 7, "nome": "Prod7", "descricao": "Descrição do produto 7", "valor": 2000.0, "estado": "Novo"}
+Documento inválido encontrado: {"_id": {"$oid": "66950438c51a5423da5aa846"}, "codigo": 7, "nome": "Prod7", "descricao": "Descrição do produto 7", "valor": 2000.0, "estado": "Novo"}
+Produto{codigo=1, nome='Calular Galaxy S10', descricao='Poucos riscos, esdo de novo', valor=1250.0, estado='null'}
+Produto{codigo=2, nome='Prod2', descricao='Bla bla', valor=1100.0, estado='null'}
+Produto{codigo=3, nome='Prod3', descricao='Bla bla', valor=120.0, estado='null'}
+Produto{codigo=4, nome='Prod4', descricao='Bla bla', valor=1300.0, estado='null'}
+Produto{codigo=5, nome='Prod5', descricao='Bla bla', valor=9400.0, estado='null'}
+Produto{codigo=6, nome='Prod6', descricao='Bla bla', valor=1500.0, estado='null'}
+Produto inserido: Produto{codigo=7, nome='Prod7', descricao='Descrição do produto 7', valor=2000.0, estado='Novo'}
+Valor do produto 1 atualizado.
+Produto com código 2 removido.
+Lista de Produtos atualizada:
+Produto{codigo=1, nome='Calular Galaxy S10', descricao='Poucos riscos, esdo de novo', valor=1250.0, estado='null'}
+Produto{codigo=2, nome='Prod2', descricao='Bla bla', valor=1100.0, estado='null'}
+Produto{codigo=3, nome='Prod3', descricao='Bla bla', valor=120.0, estado='null'}
+Produto{codigo=4, nome='Prod4', descricao='Bla bla', valor=1300.0, estado='null'}
+Produto{codigo=5, nome='Prod5', descricao='Bla bla', valor=9400.0, estado='null'}
+Produto{codigo=6, nome='Prod6', descricao='Bla bla', valor=1500.0, estado='null'}
+Produto{codigo=7, nome='Prod7', descricao='Descrição do produto 7', valor=2000.0, estado='Novo'}
+
+Process finished with exit code 0

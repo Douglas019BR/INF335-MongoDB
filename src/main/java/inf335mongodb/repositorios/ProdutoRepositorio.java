@@ -36,35 +36,54 @@ public class ProdutoRepositorio {
     public List<Produto> listarProdutos() {
         List<Produto> produtos = new ArrayList<>();
         for (Document doc : collection.find()) {
-            Produto produto = new Produto(
-                    doc.getInteger("codigo"),
-                    doc.getString("nome"),
-                    doc.getString("descricao"),
-                    doc.getDouble("valor"),
-                    doc.getString("estado")
-            );
+            Integer codigo = doc.getInteger("Codigo");
+            String nome = doc.getString("Nome");
+            String descricao = doc.getString("Descrição");
+            Double valor = null;
+            String estado = doc.getString("Estado");
+
+            if (codigo == null) codigo = doc.getInteger("produto_id");
+            if (nome == null) nome = doc.getString("nome");
+            if (descricao == null) descricao = doc.getString("descricao");
+
+            if (doc.get("Valor") instanceof Double) {
+                valor = doc.getDouble("Valor");
+            } else if (doc.get("Valor") instanceof Integer) {
+                valor = ((Integer) doc.get("Valor")).doubleValue();
+            } else if (doc.get("preco") instanceof Double) {
+                valor = doc.getDouble("preco");
+            } else if (doc.get("preco") instanceof Integer) {
+                valor = ((Integer) doc.get("preco")).doubleValue();
+            }
+
+            if (codigo == null || nome == null || descricao == null || valor == null) {
+                System.err.println("Documento inválido encontrado: " + doc.toJson());
+                continue;
+            }
+
+            Produto produto = new Produto(codigo, nome, descricao, valor, estado);
             produtos.add(produto);
         }
         return produtos;
     }
 
     public void inserirProduto(Produto produto) {
-        Document doc = new Document("codigo", produto.getCodigo())
-                .append("nome", produto.getNome())
-                .append("descricao", produto.getDescricao())
-                .append("valor", produto.getValor())
-                .append("estado", produto.getEstado());
+        Document doc = new Document("Codigo", produto.getCodigo())
+                .append("Nome", produto.getNome())
+                .append("Descrição", produto.getDescricao())
+                .append("Valor", produto.getValor())
+                .append("Estado", produto.getEstado());
         collection.insertOne(doc);
     }
 
     public void atualizarValorProduto(int codigo, double novoValor) {
-        Document query = new Document("codigo", codigo);
-        Document update = new Document("$set", new Document("valor", novoValor));
+        Document query = new Document("Codigo", codigo);
+        Document update = new Document("$set", new Document("Valor", novoValor));
         collection.updateOne(query, update);
     }
 
     public void removerProduto(int codigo) {
-        Document query = new Document("codigo", codigo);
+        Document query = new Document("Codigo", codigo);
         collection.deleteOne(query);
     }
 }
