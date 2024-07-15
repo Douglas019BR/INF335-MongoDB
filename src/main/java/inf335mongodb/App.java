@@ -16,11 +16,14 @@ public class App {
         repositorio.inserirProduto(novoProduto);
         System.out.println("Produto inserido: " + novoProduto);
 
-        repositorio.atualizarValorProduto(1, 1300.0);
-        System.out.println("Valor do produto 1 atualizado.");
-
-        repositorio.removerProduto(2);
-        System.out.println("Produto com código 2 removido.");
+        repositorio.atualizarValorProduto(7, 1300.0);
+        System.out.println("Valor do produto 7 atualizado.");
+        System.out.println("Lista de Produtos com produto 7 atualizado:");
+        for (Produto produto : repositorio.listarProdutos()) {
+            System.out.println(produto);
+        }
+        repositorio.removerProduto(7);
+        System.out.println("Produto com código 7 removido.");
 
         System.out.println("Lista de Produtos atualizada:");
         for (Produto produto : repositorio.listarProdutos()) {
